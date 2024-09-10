@@ -1,0 +1,103 @@
+<div id="layoutSidenav_content">
+    <app-navbar></app-navbar>
+    <app-space></app-space>
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Serviços</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active"><div class="consultaw">Consulta</div></li>
+            </ol>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
+                        {{ mensagemSucesso }}
+                    </div>
+                    <div class="alert alert-danger" role="alert" *ngIf="mensagemErro">
+                        {{ mensagemErro }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="btn btn-primary" (click)="novoCadastro()">
+                        <fa-icon [icon]="faPlus"></fa-icon> Novo
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Descrição" [(ngModel)]="descricaoFiltro" (input)="filtrarServicos()">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Funcionário</th>
+                                    <th>Descrição</th>
+                                    <th>
+                                        Data Inicial
+                                        <button (click)="ordenarServicos('dataInicial')" class="btn btn-link p-0 ml-2">
+                                            <fa-icon [icon]="faFilter"  [ngClass]="{'fa-sort-asc': orderAscDataInicial, 'fa-sort-desc': !orderAscDataInicial}" style="color: white;"></fa-icon>
+                                        </button>
+                                    </th>
+                                    <th>
+                                        Data Final
+                                        <button (click)="ordenarServicos('dataFinal')" class="btn btn-link p-0 ml-2">
+                                            <fa-icon [icon]="faFilter"  [ngClass]="{'fa-sort-asc': orderAscDataFinal, 'fa-sort-desc': !orderAscDataFinal}" style="color: white;"></fa-icon>
+                                        </button>
+                                    </th>
+                                    <th>Tipo de Serviço</th>
+                                    <th>Situação</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let servico of servicosFiltrados" [ngClass]="getRowClass(servico)">
+                                    <td>{{ getFuncionarioNomes(servico.idFuncionarios) }}</td>
+                                    <td>{{ servico.descricao  | slice:0:5}}</td>
+                                    <td>{{ servico.data }}</td>
+                                    <td>{{ servico.dataFinal }}</td>
+                                    <td>{{ servico.tipoServico }}</td>
+                                    <td>{{ servico.situacao }}</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" [routerLink]="['/servico', servico.id]">
+                                            <fa-icon [icon]="faPencil"></fa-icon> Editar
+                                        </button>
+                                        <span style="margin: 0 5px;"></span>
+                                        <button class="btn btn-danger btn-sm" (click)="preparaDelecao(servico)" data-toggle="modal" data-target="#modalDelecao">
+                                            <fa-icon [icon]="faTrash"></fa-icon> Excluir
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>           
+            <div id="modalDelecao" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirmação</h4>
+                        </div>
+                        <div class="modal-body" *ngIf="servicoSelecionado">
+                            Confirma a deleção do serviço {{ servicoSelecionado.descricao | slice:0:5 }}?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deletarServico()">
+                                Confirmar
+                            </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,81 @@
+.contact-area {
+  padding: 60px 0;
+}
+
+.section__title-center {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact-content {
+  margin: 0 auto;
+  max-width: 600px;
+}
+span{
+  color: #00ffff;
+}
+.hr {
+  width: 50px;
+  height: 3px;
+  background: #32d2cf;
+  margin: 20px auto;
+}
+
+.contact-social ul {
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.contact-social ul li {
+  list-style: none;
+}
+
+.contact-social ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  background-color: #38383857; /* Background color of the box */
+}
+
+.contact-social ul li a svg {
+  width: 30px;
+  height: 30px;
+  fill: #32d2cf; /* Initial color of the icon */
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.contact-social ul li a:hover {
+  background-color: #32d2cf00; /* Background color on hover */
+  border-color: #000000; /* Border color on hover */
+  transform: scale(1.1); /* Scale up the box on hover */
+}
+
+.contact-social ul li a:hover svg {
+  fill: #ffffff; /* Icon color on hover */
+  transform: scale(1.2); /* Scale up the icon on hover */
+}
+
+.text-centerinf {
+  font-size: 14px; /* Tamanho menor */
+  font-weight: 300; /* Fonte mais fina */
+  color:rgb(135, 137, 138); /* Cor cinza */
+  text-align: center;
+}
+.text-center {
+  text-align: center;
+}
+.centericon {
+  list-style: none;
+}
+
+.contact-area {
+ border-bottom: 1px solid rgb(6, 116, 116);
+}

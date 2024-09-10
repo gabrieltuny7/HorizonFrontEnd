@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+<app-space></app-space>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4">Funcionários</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">
+                        <span class="breadcrumb-text">
+                            {{ funcionario.id ? 'Edição' : 'Cadastro' }}
+                        </span>
+                    </li>
+                </ol>
+            </div>
+            <div class="container">
+                <form #funcionarioForm="ngForm" (ngSubmit)="onSubmit()" class="animated-input">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-success" role="alert" *ngIf="success">
+                                Funcionário salvo/atualizado com sucesso!
+                            </div>
+                            <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                                {{ erro }}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" *ngIf="funcionario.id">
+                        <div class="col-md-6">
+                            <label>ID:</label>
+                            <br>
+                            <input type="text" class="form-control" disabled [ngModel]="funcionario.id" name="funcionario.id" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Data Admissão:</label>
+                            <br>
+                            <input type="text" class="form-control" disabled [ngModel]="funcionario.dataAdmissao" name="funcionario.dataAdmissao" />
+                        </div>
+                    </div>
+            
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Nome:</label>
+                            <br>
+                            <input type="text" class="form-control" [(ngModel)]="funcionario.nome" name="funcionario.nome" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label>CPF:</label>
+                            <br>
+                            <input type="text" class="form-control" [(ngModel)]="funcionario.cpf" name="funcionario.cpf" (ngModelChange)="applyCpfMask($event)" maxlength="14" [disabled]="funcionario.id !== undefined" required />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Cargo:</label>
+                            <br>
+                            <input type="text" class="form-control" [(ngModel)]="funcionario.cargo" name="funcionario.cargo" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Habilidades:</label>
+                            <br>
+                            <input type="text" class="form-control" [(ngModel)]="funcionario.habilidades" name="funcionario.habilidades" required />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Telefone:</label>
+                            <input type="text" class="form-control" [(ngModel)]="funcionario.telefone" name="funcionario.telefone" maxlength="11" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email:</label>
+                            <input type="email" class="form-control" [(ngModel)]="funcionario.email" name="funcionario.email" required />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-success" *ngIf="!funcionario.id">
+                                <fa-icon [icon]="faBookmark"></fa-icon> Salvar
+                            </button>
+                            <button type="submit" class="btn btn-primary" *ngIf="funcionario.id">
+                                <fa-icon [icon]="faSync"></fa-icon> Atualizar
+                            </button>
+                            <button type="button" class="btn btn-danger ml-2" (click)="voltarParaListagem()">
+                                <fa-icon [icon]="faLeftLong"></fa-icon> Voltar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </main>
+    </div>
+</div>

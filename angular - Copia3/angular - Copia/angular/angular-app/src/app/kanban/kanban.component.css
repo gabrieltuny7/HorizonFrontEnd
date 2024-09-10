@@ -1,0 +1,188 @@
+.kanban-board {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+body{
+  background-color: rgb(5, 5, 5);
+}
+.kanban-column {
+  background-color: #343a40; /* Fundo escuro */
+  border-radius: 8px;
+  width: 30%;
+  padding: 20px;
+  min-height: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais escura */
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: #000000;
+  border-radius: 0.25rem;
+  
+}
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: "/";
+}
+.breadcrumb-item + .breadcrumb-item:hover::before {
+  text-decoration: underline;
+}
+.breadcrumb-item + .breadcrumb-item:hover::before {
+  text-decoration: none;
+}
+.breadcrumb-item.active {
+  color: #6c757d;
+}.breadcrumb-text {
+  color: white;
+  font-size: 20px;
+}
+.consultaw{
+  color: white; 
+  font-size: 20px;
+ }
+.kanban-column h2 {
+  text-align: center;
+  color: rgba(0, 255, 255, 0.788); /* Azul ciano */
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.kanban-column .card {
+  background-color: #495057; /* Fundo cinza escuro */
+  border: 1px solid #495057; /* Borda cinza escuro */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  cursor: move;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Sombra mais escura */
+}
+
+.kanban-column .card:hover {
+  transform: translateY(-5px); /* Efeito de levantar ao passar o mouse */
+  transition: transform 0.2s ease-in-out;
+}
+
+.kanban-column .card-title {
+  font-weight: bold;
+  color: #ffffff; /* Texto branco */
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.kanban-column .card-description {
+  color: #adb5bd; /* Texto cinza claro */
+  font-size: 14px;
+}
+
+.kanban-column .card-actions {
+  margin-top: 10px;
+}
+.kanban-board {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.kanban-column {
+  width: 30%;
+  background-color: #000000;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.kanban-column h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card {
+  background-color: #53535359;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-description {
+  font-size: 12px;
+  color: #777;
+}
+
+.card-actions {
+  margin-top: 8px;
+  text-align: right;
+}
+
+/* Estilo específico para cada coluna */
+.fazer-column {
+  box-shadow: 0 2px 4px rgba(255, 193, 7, 0.589);
+  border: 2px solid rgb(255, 193, 7); /* Laranja para 'Fazer' */
+}
+
+.fazendo-column {
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.562);
+  border: 2px solid rgb(0, 123, 255); /* Azul para 'Fazendo' */
+}
+
+.feito-column {
+  box-shadow: 0 2px 4px rgba(76, 175, 79, 0.596);
+  border: 2px solid rgb(76, 175, 80); /* Verde para 'Feito' */
+}
+.kanban-column button {
+  width: 100%;
+  padding: 10px;
+  background-color: #17a2b8; /* Azul ciano */
+  color: #fff; /* Texto branco */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.kanban-column button:hover {
+  background-color: #138496; /* Azul mais escuro ao passar o mouse */
+}
+
+.kanban-column .btn-danger {
+  background-color: #dc3545; /* Vermelho */
+}
+
+.kanban-column .btn-danger:hover {
+  background-color: #c82333; /* Vermelho mais escuro ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kanban-column {
+    width: 80%;
+  }
+}

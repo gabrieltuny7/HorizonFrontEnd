@@ -1,0 +1,68 @@
+<div class="page-wrapper chiller-theme">
+  <a id="show-sidebar" class="btn btn-sm btn-white">
+      <fa-icon [icon]="faAngleRight" class="angleb"></fa-icon>
+  </a>
+  <!-- Button  -->
+
+  <nav id="sidebar" class="sidebar-wrapper">
+      <div class="sidebar-content">
+          <div class="sidebar-brand">
+              <a href="/">HOR<span class="aquat">I</span>ZON</a>
+              <div id="close-sidebar"><fa-icon [icon]="faAngleRight"></fa-icon> </div>
+          </div>
+          <!-- sidebar-brand -->
+          <div class="sidebar-header">
+              <div class="user-pic">
+                  <i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>
+              </div>
+              <div class="user-info">
+                  <span class="user-name"> <strong>User</strong></span>
+                  <span class="user-role">Desenvolvedor</span>
+                  <span class="user-status"><span style="color: green;">Online</span></span>
+              </div>
+          </div>
+          <!-- sidebar-header -->
+          <div class="sidebar-search">
+              <div>
+                  <div class="input-group">
+                      <input type="text" class="form-control search-menu" placeholder="Pesquisar...">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- sidebar-search -->
+          <div class="sidebar-menu">
+            <ul>
+                <li class="header-menu"><span>Geral</span></li>
+                <li class="sidebar-content">
+                    <a href="/index"><span>Home</span></a>
+                </li>
+                <li class="sidebar-content">
+                  <a href="/clientesList"><span>Clientes</span></a>
+              </li>
+              <li class="sidebar-content">
+                <a href="/funcionariosList"><span>Funcionarios</span></a>
+            </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="/servicoList">Serviços<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/servicoList">Serviços</a></li>
+                    <li><a href="/kanban">Kanban</a></li>
+                  </ul>
+                </li>
+                <li class="sidebar-content">
+                  <a href="/projetoList"><span>Projetos</span></a>
+              </li>
+            </ul>
+        </div>
+
+          <!-- sidebar-menu  -->
+      </div>
+      <!-- sidebar-content  -->
+      <!-- sidebar-footer  -->
+  </nav>
+
+</div>
+<!-- page-wrapper" -->

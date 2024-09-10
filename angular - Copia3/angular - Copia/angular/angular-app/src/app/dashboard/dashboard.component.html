@@ -1,0 +1,184 @@
+<div class="app-header">
+  <div class="app-header-left">
+    <span class="app-icon"></span>
+    <!-- <div class="search-wrapper">
+      <input id="search-input" class="search-input" type="text" placeholder="Search">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+        <defs></defs>
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="M21 21l-4.35-4.35"></path>
+      </svg>
+    </div> -->
+  </div>
+  <button class="messages-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+  </button>
+</div>
+<app-space></app-space>
+
+<div class="app-container">
+    <div class="app-content">
+      <div class="projects-section">
+        <div class="projects-section-header">
+          <p>Projetos</p>
+          <p class="time" id="current-date"></p>
+        </div>
+        <div class="projects-section-line">
+          <div class="projects-status">
+            <div class="item-status box" style="background-color:  #000000;">
+                <a target="_blank"  href="/clientesList" class="status-type" style="color: aqua; text-decoration: none;">Clientes:</a>
+                <span class="status-number" style="color: white;">{{ quantidadeClientes }}</span>
+            </div>
+            <div class="item-status box" style="background-color:  #000000;">
+                <a target="_blank"  href="/funcionariosList" class="status-type" style="color: aqua; text-decoration: none;">Funcionários:</a>
+                <span class="status-number" style="color: white;">{{ quantidadeFuncionarios }}</span>
+            </div>
+            <div class="item-status box"  style="background-color:  #000000;">
+                <a target="_blank"  href="/servicoList" class="status-type" style="color: aqua; text-decoration: none;">Serviços:</a>
+                <span class="status-number" style="color: white;">{{ quantidadeServicos }}</span>
+            </div>
+            <div class="item-status box" style="background-color:  #000000;">
+                <a target="_blank"  href="/projetoList" class="status-type" style="color: aqua; text-decoration: none;">Projetos:</a>
+                <span class="status-number" style="color: white;">{{ quantidadeProjetos }}</span>
+            </div>
+            <div class="item-status box" style="background-color: #000000;">
+              <a href="#valorProjetos" class="status-type" style="color: aqua; text-decoration: none;">Valor:</a>
+              <span class="status-number" style="color: white;">
+                  {{ valorTotalProjetos | currency:'BRL':'symbol':'1.2-2' }}
+              </span>
+          </div>          
+        </div>
+        
+          <div class="view-actions">
+            <button class="view-btn list-view" title="List View">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <line x1="3" y1="6" x2="3.01" y2="6" />
+                <line x1="3" y1="12" x2="3.01" y2="12" />
+                <line x1="3" y1="18" x2="3.01" y2="18" /></svg>
+            </button>
+            <button class="view-btn grid-view active" title="Grid View">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" /></svg>
+            </button>
+          </div>
+        </div>
+       <div class="project-boxes jsGridView">
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color:  #000000;">
+      <div class="project-box-header">
+        <p class="time" id="current-date"></p>
+        <div class="more-wrapper"></div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Web Designing</p>
+        <p class="box-content-subheader">Serviços</p>
+      </div>
+      <div class="box-progress-wrapper">
+        <p class="box-progress-header" style="color: #ffffff;">Quantidade</p>
+      </div>
+      <div class="project-box-footer">
+        <div class="days-left" style="color: #000000;" data-tipo="Web Designing">00</div>
+      </div>
+    </div>
+  </div>
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color:  #000000;">
+      <div class="project-box-header">
+        <p class="time" id="current-date"></p>
+        <div class="more-wrapper"></div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Testing</p>
+        <p class="box-content-subheader">Serviços</p>
+      </div>
+      <div class="box-progress-wrapper">
+        <p class="box-progress-header" style="color: #ffffff;">Quantidade</p>
+      </div>
+      <div class="project-box-footer">
+        <div class="days-left" style="color:#000000;" data-tipo="Testing">00</div>
+      </div>
+    </div>
+  </div>
+  <div class="project-box-wrapper">
+    <div class="project-box"  style="background-color:  #000000;">
+      <div class="project-box-header">
+        <p class="time" id="current-date"></p>
+        <div class="more-wrapper"></div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Software Maintenance</p>
+        <p class="box-content-subheader">Serviços</p>
+      </div>
+      <div class="box-progress-wrapper">
+        <p class="box-progress-header" style="color: #ffffff;">Quantidade</p>
+      </div>
+      <div class="project-box-footer">
+        <div class="days-left" style="color:#000000;" data-tipo="Software Maintenance">00</div>
+      </div>
+    </div>
+  </div>
+  <div class="project-box-wrapper">
+    <div class="project-box"  style="background-color:  #000000;">
+      <div class="project-box-header">
+        <p class="time" id="current-date"></p>
+        <div class="more-wrapper"></div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Data Analysis</p>
+        <p class="box-content-subheader">Serviços</p>
+      </div>
+      <div class="box-progress-wrapper">
+        <p class="box-progress-header" style="color: #ffffff;">Quantidade</p>
+      </div>
+      <div class="project-box-footer">
+        <div class="days-left" style="color: #000000;" data-tipo="Data Analysis">00</div>
+      </div>
+    </div>
+  </div>
+  <div class="project-box-wrapper">
+    <div class="project-box"  style="background-color:  #000000;">
+      <div class="project-box-header">
+        <p class="time" id="current-date"></p>
+        <div class="more-wrapper"></div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Web Development</p>
+        <p class="box-content-subheader">Serviços</p>
+      </div>
+      <div class="box-progress-wrapper">
+        <p class="box-progress-header" style="color: #ffffff;">Quantidade</p>
+      </div>
+      <div class="project-box-footer">
+        <div class="days-left" style="color: #000000;" data-tipo="Web Development">00</div>
+      </div>
+    </div>
+  </div>
+  <div class="project-box-wrapper">
+    <div class="project-box"  style="background-color:  #000000;">
+      <div class="project-box-header">
+        <p class="time" id="current-date"></p>
+        <div class="more-wrapper"></div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Outros</p>
+        <p class="box-content-subheader">Serviços</p>
+      </div>
+      <div class="box-progress-wrapper">
+        <p class="box-progress-header" style="color: #ffffff;">Quantidade</p>
+      </div>
+      <div class="project-box-footer">
+        <div class="days-left" style="color: #000000;" data-tipo="Outros">00</div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+  </div>
+  </div>

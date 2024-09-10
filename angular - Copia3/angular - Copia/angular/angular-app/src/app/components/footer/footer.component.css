@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap');
+*{
+    
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
+html{
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: black;
+}
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+p{
+    color: rgb(255, 255, 255);
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+}
+
+footer {
+    background-color: #000;  
+    font-size: 15px;
+    height: 68px;
+    width: 98%;
+    font-size: 10px;
+    text-align: center; /* Para centralizar o conteúdo do rodapé */
+    bottom: 0;
+    margin-left: 1.5%; /* Adicionando margem apenas no lado esquerdo */
+}
+
+
+footer p {
+    padding: 12px 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+footer img {
+    width: 20px;
+}
+
+footer span {
+    color: aqua;
+}

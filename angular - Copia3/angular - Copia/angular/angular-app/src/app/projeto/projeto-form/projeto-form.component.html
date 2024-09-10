@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<app-space></app-space>
+<div class="container-fluid">
+    <h1 class="mt-4">Projeto</h1>
+    <ol class="breadcrumb mb-4">
+        <span class="breadcrumb-text">
+            {{ projeto.id ? 'Edição' : 'Cadastro' }}
+        </span>
+    </ol>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="success">
+                Projeto salvo com sucesso!
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="errors.length > 0">
+                <p>{{ errors[0] }}</p>
+            </div>
+        </div>
+    </div>
+<br>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group animated-input">
+                    <label>Descrição:</label>
+                    <input class="form-control" type="text" [(ngModel)]="projeto.descricao" name="descricao" id="inputDescricao" required>
+                </div>
+                <div class="form-group animated-input">
+                    <label>Data:</label>
+                    <input class="form-control" type="date" [(ngModel)]="projeto.data" name="data" id="inputData" required>
+                </div>
+                <div class="form-group animated-input">
+                    <label>Data Final:</label>
+                    <input class="form-control" type="date" [(ngModel)]="projeto.dataFinal" name="dataFinal" id="inputDataFinal" required>
+                </div>
+                <div class="form-group animated-input">
+                    <label>Valor:</label>
+                    <input class="form-control" type="number" [(ngModel)]="projeto.valor" name="valor" id="inputValor" required>
+                </div>
+                <div class="form-group animated-input">
+                    <label>Situação:</label>
+                    <select class="form-control custom-select" [(ngModel)]="projeto.situacao" name="situacao" required>
+                        <option value="ATIVO">Ativo</option>
+                        <option value="DESATIVADO">Desativado</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group animated-input">
+                    <label>Serviços:</label>
+                    <select class="form-control custom-select" multiple [(ngModel)]="projeto.idServicos" name="idServicos" required>
+                        <option disabled value="">Selecione os serviços</option>
+                        <option *ngFor="let servico of servicos" [ngValue]="servico.id">{{ servico.descricao }}</option>
+                    </select>
+                </div>
+                <div class="form-group animated-input">
+                    <label>Clientes:</label>
+                    <select class="form-control custom-select" multiple [(ngModel)]="projeto.idClientes" name="idClientes" required>
+                        <option disabled value="">Selecione os clientes</option>
+                        <option *ngFor="let cliente of clientes" [ngValue]="cliente.id">{{ cliente.nome }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-success" *ngIf="!projeto.id">
+                    <fa-icon [icon]="faBookmark" ></fa-icon> Salvar
+                </button>
+                <button type="submit" class="btn btn-primary" *ngIf="projeto.id" >
+                    <fa-icon [icon]="faSync"></fa-icon> Atualizar
+                </button>
+                <button type="button" class="btn btn-danger ml-2" (click)="voltarParaListagem()">
+                    <fa-icon [icon]="faLeftLong"></fa-icon> Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

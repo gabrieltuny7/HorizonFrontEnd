@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+<app-space></app-space>
+<div class="container-fluid">
+    <h1 class="mt-4">Serviço</h1>
+    <ol class="breadcrumb mb-4">
+        <span class="breadcrumb-text">
+            {{ servicoPrestado.id ? 'Edição' : 'Cadastro' }}
+        </span>
+    </ol>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="success">
+                Serviço salvo com sucesso!
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="errors.length > 0">
+                <p>{{ errors[0] }}</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group animated-input">
+                    <label>Data:</label>
+                    <input class="form-control" type="date" [(ngModel)]="servicoPrestado.data" name="data" id="inputData" required>
+                </div>
+                <div class="form-group animated-input">
+                    <label>Data Final:</label>
+                    <input class="form-control" type="date" [(ngModel)]="servicoPrestado.dataFinal" name="dataFinal" id="inputDataFinal" required>
+                </div>
+                <div class="form-group animated-input">
+                    <label for="inputDescricao">Descrição:</label>
+                    <textarea class="form-control" [(ngModel)]="servicoPrestado.descricao" name="descricao" id="inputDescricao" required rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group animated-input">
+                    <label>Funcionários:</label>
+                    <select class="form-control custom-select" multiple [(ngModel)]="servicoPrestado.idFuncionarios" name="idFuncionarios" required>
+                        <option disabled value="">Selecione os funcionários</option>
+                        <option *ngFor="let funcionario of funcionarios" [ngValue]="funcionario.id">{{ funcionario.nome }}</option>
+                    </select>
+                </div>
+                
+                <div class="form-group animated-input">
+                    <label>Tipo de Serviço:</label>
+                    <select class="form-control" [(ngModel)]="servicoPrestado.tipoServico" name="tipoServico" required>
+                        <option [value]="TipoServico.WEB_DESIGNING" [selected]="servicoPrestado.tipoServico === TipoServico.WEB_DESIGNING">Web Designing</option>
+                        <option [value]="TipoServico.TESTING">Testing</option>
+                        <option [value]="TipoServico.SOFTWARE_MAINTENANCE">Software Maintenance</option>
+                        <option [value]="TipoServico.DATA_ANALYSIS">Data Analysis</option>
+                        <option [value]="TipoServico.WEB_DEVELOPMENT">Web Development</option>
+                        <option [value]="TipoServico.OUTROS">Outros</option>
+                    </select>
+                </div>
+
+                <div class="form-group animated-input">
+                    <label>Situação:</label>
+                    <select class="form-control" [(ngModel)]="servicoPrestado.situacao" name="situacao" required>
+                        <option value="FAZER">Fazer</option>
+                        <option value="FAZENDO">Fazendo</option>
+                        <option value="FEITO">Feito</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-success" *ngIf="!servicoPrestado.id">
+                    <fa-icon [icon]="faBookmark"></fa-icon> Salvar
+                </button>
+                <button type="submit" class="btn btn-primary" *ngIf="servicoPrestado.id">
+                    <fa-icon [icon]="faSync"></fa-icon> Atualizar
+                </button>
+                <button type="button" class="btn btn-danger ml-2" (click)="voltarParaListagem()">
+                    <fa-icon [icon]="faLeftLong"></fa-icon> Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

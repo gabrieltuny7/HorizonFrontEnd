@@ -1,0 +1,167 @@
+/*------------------------------
+  Google Font Imports
+------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Marcellus');
+@import url('https://fonts.googleapis.com/css2?family=Inter');
+
+/*------------------------------
+  Global Styles
+------------------------------*/
+* {
+  margin: 0px;
+  padding: 0px;
+  text-shadow: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #111;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  -webkit-font-smoothing: antialiased;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  padding: 30px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/*------------------------------
+  FAQ's
+------------------------------*/
+.faqs-wrapper {
+  position: relative;
+  width: 220%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  background: transparent;
+}
+/* FAQ Dropdown */
+.faq {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0px;
+  padding: 12px 10px;
+  background: transparent;
+  border-bottom: 1px solid rgba(255 255 255 / 20%);
+}
+/* Question */
+.toggle {
+  position: absolute;
+  z-index: 5;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0%;
+  cursor: pointer;
+}
+.question {
+  position: relative;
+  display: block;
+  width: auto;
+  margin: 0px;
+  padding: 0px 30px 0px 0px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #fff;
+  font-family: 'Inter', serif;
+}
+/* Chevron */
+.chevron {
+  position: absolute;
+  top: 27px;
+  right: 20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 0px;
+}
+.line1 {
+  display: block;
+  position: absolute;
+  content: '';
+  background: #fff;
+  width: 10px;
+  height: 1px;
+  -webkit-transform: rotate(35deg);
+  -moz-transform: rotate(35deg);
+  -o-transform: rotate(35deg);
+  transform: rotate(35deg);
+  margin-right: 8px;
+  transition: .4s ease;
+}
+.line2 {
+  display: block;
+  position: absolute;
+  content: '';
+  background: #fff;
+  width: 10px;
+  height: 1px;
+  -webkit-transform: rotate(-35deg);
+  -moz-transform: rotate(-35deg);
+  -o-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+  margin-left: 8px;
+  transition: .4s ease;
+}
+/* Answer / Content */
+.content {
+  max-height: 0;
+  height: auto;
+  overflow: hidden;
+  transition: max-height 2s cubic-bezier(0, 1, 0, 1);
+  padding: 0px 0px;
+}
+.answer {
+  color: rgba(255 255 255 / 75%);
+  font-size: 15px;
+  padding: 15px 0px 5px 0px;
+}
+
+/*------------------------------
+  FAQ's Dropdown Function
+------------------------------*/
+.toggle:checked ~ .content {
+  max-height: 1000px;
+  transition: max-height 2s ease-in-out;
+}
+.toggle:checked ~ .chevron .line1 {
+  transform: rotate(-35deg);
+}
+.toggle:checked ~ .chevron .line2 {
+  transform: rotate(35deg);
+}
+
+@media (max-width: 768px) {
+    .faqs-wrapper {
+      width: 90%; 
+    }
+  }
+  

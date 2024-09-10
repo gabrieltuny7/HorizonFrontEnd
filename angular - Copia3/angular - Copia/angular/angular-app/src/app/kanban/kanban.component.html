@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<app-space></app-space>
+
+<div class="container-fluid">
+    <h1 class="mt-4">Kanban Board</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"><div class="consultaw">Consulta</div></li>
+    </ol>
+</div>
+
+<div class="kanban-board">
+    <div class="kanban-column fazer-column" (dragover)="allowDrop($event)" (drop)="onDrop($event, 'fazer')">
+        <h2>Fazer</h2>
+        <div *ngFor="let servico of fazerServicos" 
+             class="card" 
+             [attr.draggable]="true" 
+             (dragstart)="onDragStart($event, servico)">
+            <div class="card-title">Descrição: {{ servico.descricao | slice:0:20}}</div>
+            <div class="card-description">Data Inicial: {{ servico.data }}</div>
+            <div class="card-description">Data Final: {{ servico.dataFinal }}</div> 
+            <div class="card-description">Tipo de Serviço: {{ servico.tipoServico }}</div>
+            <div class="card-actions">  
+            </div>
+        </div>
+    </div>
+
+    <div class="kanban-column fazendo-column" (dragover)="allowDrop($event)" (drop)="onDrop($event, 'fazendo')">
+        <h2>Fazendo</h2>
+        <div *ngFor="let servico of fazendoServicos" 
+             class="card" 
+             [attr.draggable]="true" 
+             (dragstart)="onDragStart($event, servico)">
+            <div class="card-title">Descrição: {{ servico.descricao | slice:0:20 }}</div>
+            <div class="card-description">Data Inicial: {{ servico.data }}</div>
+            <div class="card-description">Data Final: {{ servico.dataFinal }}</div>
+            <div class="card-description">Tipo de Serviço: {{ servico.tipoServico }}</div>
+            <div class="card-actions">
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="kanban-column feito-column" (dragover)="allowDrop($event)" (drop)="onDrop($event, 'feito')">
+        <h2>Feito</h2>
+        <div *ngFor="let servico of feitoServicos" 
+             class="card" 
+             [attr.draggable]="true" 
+             (dragstart)="onDragStart($event, servico)">
+            <div class="card-title">Descrição: {{ servico.descricao | slice:0:20}}</div>
+            <div class="card-description">Data Inicial: {{ servico.data }}</div>
+            <div class="card-description">Data Final: {{ servico.dataFinal }}</div>
+            <div class="card-description">Tipo de Serviço: {{ servico.tipoServico }}</div>
+            <div class="card-actions">
+                
+            </div>
+        </div>
+    </div>
+</div>
